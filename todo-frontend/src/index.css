@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    background-image:
+      radial-gradient(circle, rgba(33, 29, 24, 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  ::selection {
+    background: #2B6E68;
+    color: #F5F0E6;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2B6E68;
+    outline-offset: 2px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #DCD2BA;
+  border-radius: 999px;
+  border: 2px solid #F5F0E6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A69C8B;
+}
+
+@layer components {
+  .ruled-card {
+    @apply relative bg-paper-card rounded-md shadow-card border border-black/5;
+  }
+  .ruled-card::before {
+    content: '';
+    position: absolute;
+    left: 34px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(140, 47, 57, 0.18);
+  }
+
+  .check-box {
+    @apply relative flex-shrink-0 w-6 h-6 rounded-[6px] border-2 flex items-center justify-center transition-all duration-200;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] tracking-[0.12em] uppercase text-ink-soft;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-ink text-paper font-medium px-5 py-2.5 transition-colors hover:bg-brand-dark active:translate-y-px disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink/15 bg-paper-card text-ink font-medium px-5 py-2.5 transition-colors hover:bg-paper active:translate-y-px disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .field-input {
+    @apply w-full rounded-md border border-ink/15 bg-paper-card px-3.5 py-2.5 text-ink placeholder-ink-faint transition-colors focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/15;
+  }
+
+  .field-label {
+    @apply block eyebrow mb-1.5;
+  }
+}

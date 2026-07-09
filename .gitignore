@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+todo.db
+
+# Frontend (Node)
+todo-frontend/node_modules/
+node_modules/
+
+# IDEs
+.vscode/
+.idea/

@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routing import todo, auth
-from app.config.app_config import getappconfig
 
 app = FastAPI(title="Todo API", version="1.0")
 

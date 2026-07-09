@@ -13,7 +13,6 @@ app.add_middleware(
         "http://localhost:5173",
          "https://smart-todo-api-gvx2.onrender.com",
     ],
-     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],

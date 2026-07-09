@@ -1,16 +1,19 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routing import todo, auth
+from app.config.app_config import getappconfig
+
+# Agar config load karni hai toh yahan call karein (agar zaroorat ho)
+# config = getappconfig() 
 
 app = FastAPI(title="Todo API", version="1.0")
 
-# ✅ allow_origins=["*"] + allow_credentials=True is rejected by browsers.
-# List the actual frontend origin(s) you use, e.g. your local dev server.
 app.add_middleware(
     CORSMiddleware,
+    # Yahan sirf apne actual Frontend ke URLs rakhein
     allow_origins=[
-        "http://localhost:5173",
-        "https://smart-todo-api-gvx2.onrender.com",
+        "http://localhost:5173", 
+        "https://your-frontend-domain.com", # <--- Apna actual frontend URL dalein
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -19,7 +22,6 @@ app.add_middleware(
 
 app.include_router(auth.router, prefix="/api", tags=["Authentication"])
 app.include_router(todo.router, prefix="/api", tags=["Todos"])
-
 
 @app.get("/")
 async def root():

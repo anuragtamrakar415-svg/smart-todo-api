@@ -10,9 +10,9 @@ app = FastAPI(title="Todo API", version="1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost:5173",
         "https://smart-todo-api-gvx2.onrender.com",
     ],
-    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -12,15 +12,15 @@ app.add_middleware(
     CORSMiddleware,
     # Yahan sirf apne actual Frontend ke URLs rakhein
     allow_origins=[
-        "https://https://smart-todo-api-gvx2.onrender.com/", # <--- Apna actual frontend URL dalein
+        "https://https://smart-todo-api-gvx2.onrender.com", # <--- Apna actual frontend URL dalein
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, prefix="/api", tags=["Authentication"])
-app.include_router(todo.router, prefix="/api", tags=["Todos"])
+app.include_router(auth.router,  tags=["Authentication"])
+app.include_router(todo.router,  tags=["Todos"])
 
 @app.get("/")
 async def root():

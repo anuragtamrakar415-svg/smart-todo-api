@@ -6,7 +6,7 @@ from app.database.schema.user_schema import UserSchema
 from app.models.auth import Login, Register
 from app.helper import create_access_token, hash_password, verify_password
 
-router = APIRouter(prefix="/api/auth")
+router = APIRouter(prefix="/auth")
 
 
 @router.post("/register", status_code=status.HTTP_201_CREATED)

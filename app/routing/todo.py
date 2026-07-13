@@ -8,7 +8,7 @@ from app.models.todo import CreateTodo, UpdateTodo
 from app.dependencies import authenticate_user
 from datetime import datetime, timezone
 
-router = APIRouter(prefix="/api/todo")
+router = APIRouter(prefix="/todo")
 
 
 @router.get("/")

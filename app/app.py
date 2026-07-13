@@ -12,7 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     # Yahan sirf apne actual Frontend ke URLs rakhein
     allow_origins=[
-        "http://smart-todo-api-gvx2.onrender.com", # <--- Apna actual frontend URL dalein
+        "https://smart-todo-api-gvx2.onrender.com", # <--- Apna actual frontend URL dalein
     ],
     allow_credentials=True,
     allow_methods=["*"],
